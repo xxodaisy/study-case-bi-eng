@@ -1,0 +1,45 @@
+#models/intermediate/schema.yml
+version: 2
+
+models:
+  - name: orders_enriched
+    description: "This table contains enriched order data by joining the staging tables. It includes additional information such as customer details, product details, and order reviews."
+    columns:
+      - name: order_id
+        description: "Unique identifier for each order."
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Unique identifier for each customer who placed the order."
+        tests:
+          - not_null
+      - name: price
+        description: "Price of the product in the order item."
+        tests:
+          - not_null
+      - name: rating
+        description: "Review score given by the customer for the order."
+        tests:
+          - not_null
+
+  - name: seller_metrics
+    description: "This table contains metrics related to sellers, such as total sales, average review score, and number of orders fulfilled."
+    columns:
+      - name: seller_id
+        description: "Unique identifier for each seller."
+        tests:
+          - unique
+          - not_null
+      - name: total_revenue
+        description: "Total sales amount for the seller."
+        tests:
+          - not_null
+      - name: average_review_score
+        description: "Average review score for the seller."
+        tests:
+          - not_null
+      - name: total_orders
+        description: "Total number of orders fulfilled by the seller."
+        tests:
+          - not_null

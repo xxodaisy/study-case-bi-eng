@@ -1,0 +1,61 @@
+#models/mart/schema.yml
+version: 2
+
+models:
+  - name: customer_segments
+    description: "This table contains customer segments based on their purchasing behavior and demographics. It helps in understanding different customer groups and tailoring marketing strategies accordingly."
+    columns:
+      - name: customer_id
+        description: "Unique identifier for each customer."
+        tests:
+          - unique
+          - not_null
+      - name: segments
+        description: "Customer segment classification based on purchasing behavior and demographics."
+        tests:
+          - not_null
+
+  - name: product_performance
+    description: "This table contains performance metrics for products, such as total sales, average rating, and number of reviews. It helps in identifying top-performing products and areas for improvement."
+    columns:
+      - name: product_id
+        description: "Unique identifier for each product."
+        tests:
+          - unique
+          - not_null
+      - name: total_revenue
+        description: "Total sales amount for the product."
+        tests:
+          - not_null
+      - name: average_review_score
+        description: "Average review score for the product."
+        tests:
+          - not_null
+      - name: units_sold
+        description: "Total number of units sold for the product."
+        tests:
+          - not_null
+  - name: monthly_revenue
+    description: "This table contains monthly revenue data, which helps in analyzing trends and seasonality in sales performance."
+    columns:
+      - name: month
+        description: "Month of the year in YYYY-MM format."
+        tests:
+          - unique
+          - not_null
+      - name: total_revenue
+        description: "Total revenue generated in the month."
+        tests:
+          - not_null
+      - name: total_orders
+        description: "Total number of orders placed in the month."
+        tests:
+          - not_null
+      - name: prev_month_revenue
+        description: "Total revenue generated in the previous month for comparison."
+        tests:
+          - not_null
+      - name: revenue_growth
+        description: "Percentage growth in revenue compared to the previous month."
+        tests:
+          - not_null
