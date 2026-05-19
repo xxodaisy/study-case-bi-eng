@@ -32,6 +32,7 @@ joined as(
         oi.freight_value,
 
         r.rating,
+        r.is_low_score,
         r.reviewed_at,
 
         EXTRACT(DAY FROM(o.delivered_at - o.estimated_delivery_at)) as delivery_delay_days,
